@@ -36,6 +36,13 @@ brew unlink php53
 brew link php53
 echo "Don’t forget to add $(brew --prefix josegonzalez/php/php53)/bin to \$PATH."
 
+# Install MySQL
+brew install mysql
+mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
+mkdir -p ~/Library/LaunchAgents
+cp $(brew --prefix mysql)/homebrew.mxcl.mysql.plist ~/Library/LaunchAgents/
+launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+
 # Install everything else
 # brew install ack
 # brew install exiv2
@@ -50,3 +57,5 @@ brew install git
 
 # Remove outdated versions from the cellar
 brew cleanup
+
+echo "Don't forget to run $(brew --prefix mysql)/bin/mysql_secure_installation to secure MySQL installation."
