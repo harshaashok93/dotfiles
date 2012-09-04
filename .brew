@@ -31,8 +31,6 @@ $(brew --prefix josegonzalez/php/php53)/bin/pear config-set auto_discover 1
 $(brew --prefix josegonzalez/php/php53)/bin/pear update-channels
 $(brew --prefix josegonzalez/php/php53)/bin/pear upgrade
 brew install php53-apc
-brew install php53-intl
-brew install php53-mcrypt
 brew install php53-xdebug
 brew unlink php53
 brew link php53
