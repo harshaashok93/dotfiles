@@ -1,0 +1,58 @@
+#!/bin/bash
+
+# Installation script for Debian based GNU/Linux OS (Ubuntu, Mint etc.,)
+
+sudo -v
+
+# Update and Upgrade
+sudo apt-get update
+sudo apt-get upgrade
+
+# Add extra repos
+sudo add-apt-repository ppa:synapse-core/ppa
+sudo add-apt-repository ppa:webupd8team/sublime-text-2
+sudo add-apt-repository ppa:upubuntu-com/chat
+sudo apt-get update
+
+# Install packages
+sudo apt-get -y install bash-completion git colordiff htop screen
+
+# Apache, PHP and MySQL
+sudo apt-get -y install apache2 mysql-server php5 php5-mysql php5-cli php5-imagick php5-gd php5-mcrypt php5-curl php5-intl php5-dev php5-xdebug php-apc php-soap
+
+# Postfix
+sudo apt-get -y install postfix
+
+# SSH Server
+sudo apt-get -y install ssh
+
+# Chromium
+sudo apt-get -y install chromium-browser
+
+# Clipboard Manager
+sudo apt-get -y install parcellite
+
+# Synaspe
+sudo apt-get -y install synapse
+
+# Sublime Text
+sudo apt-get -y install sublime-text
+
+# Filezilla
+sudo apt-get -y install filezilla
+
+# Skype
+sudo apt-get -y install skype
+
+sudo mkdir -pv /var/www/{html,vhosts}
+sudo chown -R `whoami` /var/www/
+
+sudo update-rc.d apache2 defaults
+sudo update-rc.d mysql defaults
+sudo update-rc.d postfix defaults
+sudo update-rc.d ssh defaults
+
+sudo service apache2 start
+sudo service mysql start
+sudo service postfix start
+sudo service ssh start
