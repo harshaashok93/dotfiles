@@ -25,7 +25,7 @@ brew install wget --enable-iri
 # Install PHP
 brew tap homebrew/dupes
 brew tap josegonzalez/homebrew-php
-brew install php53 --with-mysql --with-intl
+brew install php53 --with-tidy --with-mysql --with-intl
 chmod -R ug+w "$(brew --prefix josegonzalez/php/php53)/lib/php"
 $(brew --prefix josegonzalez/php/php53)/bin/pear config-set auto_discover 1
 $(brew --prefix josegonzalez/php/php53)/bin/pear update-channels
