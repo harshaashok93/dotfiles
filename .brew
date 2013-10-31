@@ -25,24 +25,24 @@ brew install wget --enable-iri
 # Install PHP
 brew tap homebrew/dupes
 brew tap josegonzalez/homebrew-php
-brew install php54 --with-mysql --with-intl
-chmod -Rv ug+w "$(brew --prefix josegonzalez/php/php54)/lib/php"
-$(brew --prefix josegonzalez/php/php54)/bin/pear config-set php_ini /usr/local/etc/php/5.4/php.ini
-$(brew --prefix josegonzalez/php/php54)/bin/pear config-set auto_discover 1
-$(brew --prefix josegonzalez/php/php54)/bin/pear update-channels
-$(brew --prefix josegonzalez/php/php54)/bin/pear upgrade
-brew install php54-apc
-brew install php54-xdebug
-brew unlink php54
-brew link php54
-echo "Don’t forget to add $(brew --prefix josegonzalez/php/php54)/bin to \$PATH."
+brew install php55 --with-mysql --with-intl
+chmod -Rv ug+w "$(brew --prefix josegonzalez/php/php55)/lib/php"
+$(brew --prefix josegonzalez/php/php55)/bin/pear config-set php_ini /usr/local/etc/php/5.4/php.ini
+$(brew --prefix josegonzalez/php/php55)/bin/pear config-set auto_discover 1
+$(brew --prefix josegonzalez/php/php55)/bin/pear update-channels
+$(brew --prefix josegonzalez/php/php55)/bin/pear upgrade
+brew install php55-apc
+brew install php55-xdebug
+brew unlink php55
+brew link php55
+echo "Don’t forget to add $(brew --prefix josegonzalez/php/php55)/bin to \$PATH."
 
 # Install MySQL
-brew install mysql
-mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
-mkdir -p ~/Library/LaunchAgents
-cp $(brew --prefix mysql)/homebrew.mxcl.mysql.plist ~/Library/LaunchAgents/
-launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+# brew install mysql
+# mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
+# mkdir -p ~/Library/LaunchAgents
+# cp $(brew --prefix mysql)/homebrew.mxcl.mysql.plist ~/Library/LaunchAgents/
+# launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 
 # Install everything else
 # brew install ack
